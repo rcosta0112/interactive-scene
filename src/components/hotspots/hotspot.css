@@ -1,0 +1,159 @@
+.hotspot {
+  position: absolute;
+  width: auto;
+  height: auto;
+  color: #fff;
+  cursor: pointer;
+  background-image: none;
+  border-radius: 50%;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  font-size: 24px;
+  font-weight: 900;
+  transition: transform .25s;
+  top: 10vh;
+  left: 10vh;
+  transform: scale(.8)rotate(0);
+  pointer-events: auto;
+}
+
+
+.hotspot > * { pointer-events: none;}
+
+.hotspot:hover {
+  border: 10px var(--primary-color);
+  transform: scale(1.12);
+}
+
+.hotspots.hidden {
+  display: none;
+}
+
+.hotspot-icon-wrap {
+  z-index: 2;
+  width: 40px;
+  height: 40px;
+  background-color: var(--primary-color);
+  border-radius: 100%;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  position: relative;
+}
+
+
+.hotspot-pulse {
+  width: 40px;
+  height: 40px;
+  background-color: var(--primary-color);
+  border-radius: 100%;
+  position: absolute;
+  top: 50%;
+  bottom: 0%;
+  left: 50%;
+  right: 0%;
+  transform: translate(-50%)translate(0, -50%);
+  opacity: 0.5;
+  animation: pulse-animation 1.5s ease-out infinite;
+}
+
+@keyframes pulse-animation {
+  0% {
+    width: 40px;
+    height: 40px;
+    opacity: 0.7;
+  }
+  80% {
+    width: 70px;
+    height: 70px;
+    opacity: 0;
+  }
+  100% {
+    width: 70px;
+    height: 70px;
+    opacity: 0;
+  }
+}
+
+
+.hotspot-label {
+  color: #000;
+  text-align: center;
+  white-space: pre;
+  overflow-wrap: normal;
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 6px 10px;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 18px;
+  display: none;
+  position: absolute;
+  bottom: 60px;
+  left: 50%;
+  right: auto;
+  transform: translate(-50%);
+  box-shadow: 2px 2px 12px rgba(0, 0, 0, .03);
+  user-select: none;
+}
+
+.hotspot:hover .hotspot-label {
+  display: block;
+}
+
+.hotspot-icon {
+  width: 21px;
+  height: 21px;
+  max-width: none;
+  border: 2px solid #fff;
+  border-radius: 100%;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  display: flex;
+}
+
+.hotspot-number {
+  text-align: center;
+  font-size: 21px;
+  font-weight: 600;
+  line-height: 1;
+  position: relative;
+  user-select: none;
+}
+
+.hotspot-play {
+  width: 30px;
+  height: 30px;
+  background-image: url('/images/play-button.svg');
+  background-position: 50%;
+  background-size: 90% 90%;
+  justify-content: center;
+  align-items: center;
+  display: block;
+}
+
+.hotspot-zoom {
+  width: 40px;
+  height: 40px;
+  background-image: url('/images/zoom-icon.svg');
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: 50% 50%;
+  justify-content: center;
+  align-items: center;
+  display: block;
+}
+
+.hotspot-download {
+  width: 40px;
+  height: 40px;
+  background-image: url('/images/download-icon-white.svg');
+  background-position: 50% 52%;
+  background-repeat: no-repeat;
+  background-size: 60% 60%;
+  justify-content: center;
+  align-items: center;
+  display: block;
+}
