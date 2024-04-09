@@ -13,21 +13,21 @@ export default function Scene({ backgroundURL, backgroundRef, startPosition, chi
   let scrollLeft;
   let currentScrollLeft = 0;
 
-  useEffect(() => {
+  // useEffect(() => {
     // This controls the scene starting scroll position
     // start at a certain percentage of the scene's width
     // if (startPosition) {
     //   var maxScrollLeft = sceneRef.current.scrollWidth - sceneRef.current.clientWidth;
     //   sceneRef.current.scrollLeft = maxScrollLeft * startPosition
     // }
-  });
+  // });
 
   // console.log(currentScrollLeft)
   
-  useEffect(() => {
+  // useEffect(() => {
     // if (!isDown) sceneRef.current.scrollLeft = sceneScroll;
     // setSceneScroll(currentScrollLeft);
-  }, [currentScrollLeft])
+  // }, [currentScrollLeft])
 
   const mouseDownHandler = function (e) {
     isDown = true;

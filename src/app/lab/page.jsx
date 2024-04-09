@@ -2,14 +2,13 @@
 
 import Scene from "@/components/scene/Scene";
 import TopNav from "@/components/topNav/TopNav";
-import MiniMap from "@/components/miniMap/MiniMap";
 import Help from "@/components/help/Help";
 import Hotspots from "@/components/hotspots/Hotspots";
 import Hotspot from "@/components/hotspots/Hotspot";
 import Popup from "@/components/popups/Popup";
 import VideoPopup from "@/components/popups/VideoPopup";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, Suspense } from "react";
 
 export default function Home() {
 
@@ -31,7 +30,7 @@ export default function Home() {
 
   useEffect(() => {
     setHelpIn(false);
-  }, [false]);
+  }, [helpIn]);
 
 
   // Popups
@@ -60,13 +59,15 @@ export default function Home() {
       </Scene>
 
       <TopNav toggleHelp={toggleHelp} />
-      {/* <MiniMap thumbnailURL={backgroundURL} backgroundRef={backgroundRef} scene={sceneRef} setSceneScroll={setSceneScroll} sceneScroll={sceneScroll} /> */}
 
       <Popup id="1" currentPopup={currentPopup} closePopups={closePopups} />
       <Popup id="2" currentPopup={currentPopup} closePopups={closePopups} />
       <Popup id="4" currentPopup={currentPopup} closePopups={closePopups} />
       <Popup id="5" currentPopup={currentPopup} closePopups={closePopups} />
-      <Help helpIn={helpIn} toggleHelp={toggleHelp} thumbnailURL={backgroundURL} />
+
+      <Suspense>
+        <Help helpIn={helpIn} toggleHelp={toggleHelp} thumbnailURL={backgroundURL} />
+      </Suspense>
 
     </main>
   );

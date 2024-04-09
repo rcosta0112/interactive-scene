@@ -1,6 +1,6 @@
 "use client";
 
-import VidyardEmbed from '@vidyard/embed-code';
+import Image from 'next/image';
 
 import "./popup.css";
 import { popupData } from "/src/app/utils/popupData";
@@ -23,17 +23,8 @@ export default function Popup({ id, currentPopup, closePopups }) {
     return slide.id == id
   }).slides;
 
-  // Video player 
-  VidyardEmbed.api.renderDOMPlayers();
-  var players = VidyardV4.players;
-  // var players = VidyardV4.api.getPlayersByUUID("MW2yWVyxgcLf31k3fk9ptQ");
-
-  function stopVideo() {
-    players.forEach((player) => player.pause());
-  }
 
   function closePopup() {
-    stopVideo();
     closePopups();
   }
 
@@ -47,7 +38,6 @@ export default function Popup({ id, currentPopup, closePopups }) {
         slidesPerView={1}
         navigation
         pagination={{ clickable: true }}
-        onSlideChange={stopVideo}
       >
         {
           slides.map((slide, index) => {
@@ -55,14 +45,14 @@ export default function Popup({ id, currentPopup, closePopups }) {
               return (
                 <SwiperSlide key={index}>
                   <div className="video-wrapper">
-                    <img className="vidyard-player-embed" data-uuid={slide.UUID} data-v="4" data-type="inline" />
+                    <Image width="1920" height="1080" alt="slide" className="vidyard-player-embed" data-uuid={slide.UUID} data-v="4" data-type="inline" />
                   </div>
                 </SwiperSlide>
               )
             } else {
               return (
                 <SwiperSlide key={index}>
-                  <img className="swiper-slide" src={slide.fileName} />
+                  <Image width="1920" height="1080" alt="slide" className="swiper-slide" src={slide.fileName} />
                 </SwiperSlide>
               )
             }
