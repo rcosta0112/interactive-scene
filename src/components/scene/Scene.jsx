@@ -13,6 +13,12 @@ export default function Scene({ backgroundURL, backgroundRef, startPosition, chi
   let scrollLeft;
   let currentScrollLeft = 0;
 
+  // Fade in on load
+  useEffect(() => {
+    const scene = document.querySelector('.scene');
+    scene.classList.add('in');
+  }, []);
+
   // useEffect(() => {
     // This controls the scene starting scroll position
     // start at a certain percentage of the scene's width

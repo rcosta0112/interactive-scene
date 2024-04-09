@@ -12,11 +12,11 @@ import { useState, useEffect, useRef } from "react";
 export default function Home() {
 
 
+  // Fades in after dom is mounted
   useEffect(() => {
     const main = document.querySelector('main');
     main.classList.add('in');
   }, []);
-
 
 
   // Scene scroll and mini map
