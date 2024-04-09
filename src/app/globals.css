@@ -26,6 +26,20 @@
 }
 
 
+body {
+  background: #000;
+}
+
+
+main {
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+
+main.in {
+  opacity: 1;
+}
+
 
 /* REFACTOR */
 /* So user can't drag the video masks */

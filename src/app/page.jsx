@@ -7,9 +7,17 @@ import Hotspots from "@/components/hotspots/Hotspots";
 import Hotspot from "@/components/hotspots/Hotspot";
 import Popup from "@/components/popups/Popup";
 
-import { useState, useEffect, useRef, Suspense } from "react";
+import { useState, useEffect, useRef } from "react";
 
 export default function Home() {
+
+
+  useEffect(() => {
+    const main = document.querySelector('main');
+    main.classList.add('in');
+  }, []);
+
+
 
   // Scene scroll and mini map
   const sceneRef = useRef();
