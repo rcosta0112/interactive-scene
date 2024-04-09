@@ -9,8 +9,8 @@ import Popup from "@/components/popups/Popup";
 
 import { useState, useEffect, useRef } from "react";
 
-export default function Home() {
 
+export default function Home({searchParams}) {
 
   // Fades in after dom is mounted
   useEffect(() => {
@@ -34,6 +34,14 @@ export default function Home() {
     setHelpIn(!helpIn);
   }
 
+  // Only shows the help screen if not coming from another page
+  useEffect(() => {
+    console.log(searchParams.help)
+    if(searchParams.help === undefined){
+      setHelpIn(true);
+    } 
+  }, []);
+
   // Popups
   const [currentPopup, setCurrentPopup] = useState();
 
@@ -47,7 +55,6 @@ export default function Home() {
 
   return (
     <main>
-
       <Scene startPosition="0" backgroundURL={backgroundURL} sceneRef={sceneRef}
         backgroundRef={backgroundRef}
         sceneScroll={sceneScroll} setSceneScroll={setSceneScroll}>

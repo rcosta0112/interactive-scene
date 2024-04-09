@@ -23,10 +23,11 @@ export default function Hotspots({
       <div className="hotspot-label">{label}</div>
     </div>;
 
-  const hotspot = (type == "zoom") ? <Link href={link}>{hotspotBody}</Link> : hotspotBody;
+  const hotspot = (type == "zoom") ? <Link href={{ pathname: link, query: { help: false } }}>{hotspotBody}</Link> : hotspotBody;
 
   return (
     hotspot
   )
 
 }
+
