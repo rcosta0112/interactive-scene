@@ -14,7 +14,7 @@
   opacity: 0;
   bottom: 100vh;
   transition: opacity 0.2s ease;
-  background: #10171a99;
+  background: var(--midnight-blue);
 }
 
 .popup.in {

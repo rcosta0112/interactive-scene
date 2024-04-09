@@ -27,7 +27,7 @@
 
 
 body {
-  background: #252323
+  background: var(--midnight-blue);
 }
 
 
