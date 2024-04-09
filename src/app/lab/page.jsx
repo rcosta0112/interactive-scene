@@ -11,6 +11,12 @@ import { useState, useEffect, useRef, Suspense } from "react";
 
 export default function Home() {
 
+  // Fades in after dom is mounted
+  useEffect(() => {
+    const main = document.querySelector('main');
+    main.classList.add('in');
+  }, []);
+
   // Scene scroll and mini map
   const sceneRef = useRef();
   const [sceneScroll, setSceneScroll] = useState();
