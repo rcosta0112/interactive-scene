@@ -29,39 +29,40 @@ export default function Popup({ id, currentPopup, closePopups }) {
   }
 
   return (
+
     <div className={"popup " + (currentPopup === id ? "in" : "")}>
-
-      <Swiper
-        modules={[Navigation, Pagination, Keyboard]}
-        spaceBetween={50}
-        keyboard={{ enabled: true }}
-        slidesPerView={1}
-        navigation
-        pagination={{ clickable: true }}
-      >
-        {
-          slides.map((slide, index) => {
-            if (slide.video) {
-              return (
-                <SwiperSlide key={index}>
-                  <div className="video-wrapper">
-                    <Image width="1920" height="1080" alt="slide" className="vidyard-player-embed" data-uuid={slide.UUID} data-v="4" data-type="inline" />
-                  </div>
-                </SwiperSlide>
-              )
-            } else {
-              return (
-                <SwiperSlide key={index}>
-                  <Image width="1920" height="1080" alt="slide" className="swiper-slide" src={slide.fileName} />
-                </SwiperSlide>
-              )
-            }
-          })
-        }
-      </Swiper>
-
-      <div title="Close Popup" className="popup-close-button" onClick={closePopup}>
-        <div className="popup-close-button-text">+</div>
+        <div className='popup-body'>
+        <Swiper
+          modules={[Navigation, Pagination, Keyboard]}
+          spaceBetween={50}
+          keyboard={{ enabled: true }}
+          slidesPerView={1}
+          navigation
+          pagination={{ clickable: true }}
+        >
+          {
+            slides.map((slide, index) => {
+              if (slide.video) {
+                return (
+                  <SwiperSlide key={index}>
+                    <div className="video-wrapper">
+                      <Image width="1920" height="1080" alt="slide" className="vidyard-player-embed" data-uuid={slide.UUID} data-v="4" data-type="inline" />
+                    </div>
+                  </SwiperSlide>
+                )
+              } else {
+                return (
+                  <SwiperSlide key={index}>
+                    <Image width="1920" height="1080" alt="slide" className="swiper-slide" src={slide.fileName} />
+                  </SwiperSlide>
+                )
+              }
+            })
+          }
+        </Swiper>
+        <div title="Close Popup" className="popup-close-button" onClick={closePopup}>
+          <div className="popup-close-button-text">+</div>
+        </div>
       </div>
     </div>
   )

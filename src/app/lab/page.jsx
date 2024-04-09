@@ -52,9 +52,9 @@ export default function Home() {
         backgroundRef={backgroundRef}
         sceneScroll={sceneScroll} setSceneScroll={setSceneScroll}>
         <Hotspots>
-          <Hotspot label="Lorem Ipsum" position={{ x: 54, y: 41 }} clickHandler={openPopup} targetPopup="1" type="icon" />
-          <Hotspot label="Dolorem Sit Amet" position={{ x: 197, y: 42 }} clickHandler={openPopup} targetPopup="5" type="icon" />
-          <Hotspot label="Back to the main floor" position={{ x: 83, y: 36 }} targetPopup="4" type="zoom" link="/?nohelp=true" />
+          <Hotspot label="Lorem Ipsum" position={{ x: 81, y: 44 }} clickHandler={openPopup} targetPopup="1" type="icon" />
+          <Hotspot label="Dolorem Sit Amet" position={{ x: 246, y: 42 }} clickHandler={openPopup} targetPopup="5" type="icon" />
+          <Hotspot label="Back to the main floor" position={{ x: 130, y: 40 }} targetPopup="4" type="zoom" link="/?nohelp=true" />
         </Hotspots>
       </Scene>
 
