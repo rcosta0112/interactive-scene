@@ -11,8 +11,6 @@ import { useState, useEffect, useRef, Suspense } from "react";
 
 export default function Home() {
 
-
-
   // Scene scroll and mini map
   const sceneRef = useRef();
   const [sceneScroll, setSceneScroll] = useState();
@@ -20,13 +18,13 @@ export default function Home() {
   const backgroundRef = useRef();
   const backgroundURL = "/images/background/main-floor.jpg";
 
+
   // Help
   const [helpIn, setHelpIn] = useState();
 
   const toggleHelp = function () {
     setHelpIn(!helpIn);
   }
-
 
   // Popups
   const [currentPopup, setCurrentPopup] = useState();
@@ -60,9 +58,7 @@ export default function Home() {
       <Popup id="4" currentPopup={currentPopup} closePopups={closePopups} />
       <Popup id="5" currentPopup={currentPopup} closePopups={closePopups} />
 
-      <Suspense>
-        <Help helpIn={helpIn} toggleHelp={toggleHelp} thumbnailURL={backgroundURL} />
-      </Suspense>
+      <Help helpIn={helpIn} toggleHelp={toggleHelp} thumbnailURL={backgroundURL} />
 
     </main>
   );

@@ -2,18 +2,18 @@
 
 import "./help.css";
 import Image from 'next/image';
-import { useSearchParams } from 'next/navigation';
+// import { useSearchParams } from 'next/navigation';
 
 
 export default function Help({ helpIn = false, thumbnailURL, toggleHelp }) {
 
-  const searchParams = useSearchParams();
+  // const searchParams = useSearchParams();
 
   // checks if help popup should be up on load
 
-  if (searchParams.get('nohelp')) {
-    helpIn = false;
-  } 
+  // if (searchParams.get('nohelp')) {
+  //   helpIn = false;
+  // } 
 
   // useEffect(() => {
   //   if (searchParams.get('nohelp')) {
