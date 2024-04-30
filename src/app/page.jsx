@@ -81,12 +81,12 @@ export default function Home({ searchParams }) {
       </Scene>
 
       <TopNav toggleHelp={toggleHelp} />
-      <MiniMap
+      {/* <MiniMap
         thumbnailURL={backgroundURL}
         background={backgroundRef}
         scene={sceneRef}
         sceneScroll={sceneScroll}
-      />
+      /> */}
 
       <Popup id="1" currentPopup={currentPopup} closePopups={closePopups} />
       <Popup id="2" currentPopup={currentPopup} closePopups={closePopups} />
