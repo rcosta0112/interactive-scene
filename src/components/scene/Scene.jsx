@@ -3,7 +3,7 @@
 import { useEffect, useRef } from 'react';
 import "./scene.css";
 
-export default function Scene({ backgroundURL, backgroundRef, startPosition, children, sceneRef, sceneScroll, setSceneScroll }) {
+export default function Scene({ backgroundURL, backgroundRef, startPosition, children, sceneRef, scrollHandler }) {
 
   // const sceneRef = useRef(null);
   const scrollSpeed = 1.2;
@@ -11,7 +11,6 @@ export default function Scene({ backgroundURL, backgroundRef, startPosition, chi
   let isDown = false;
   let startX;
   let scrollLeft;
-  let currentScrollLeft = 0;
 
   // Fade in on load
   useEffect(() => {
@@ -27,13 +26,6 @@ export default function Scene({ backgroundURL, backgroundRef, startPosition, chi
     //   sceneRef.current.scrollLeft = maxScrollLeft * startPosition
     // }
   // });
-
-  // console.log(currentScrollLeft)
-  
-  // useEffect(() => {
-    // if (!isDown) sceneRef.current.scrollLeft = sceneScroll;
-    // setSceneScroll(currentScrollLeft);
-  // }, [currentScrollLeft])
 
   const mouseDownHandler = function (e) {
     isDown = true;
@@ -57,9 +49,7 @@ export default function Scene({ backgroundURL, backgroundRef, startPosition, chi
     e.preventDefault();
     const x = e.pageX - e.target.offsetLeft;
     const walk = (x - startX) * scrollSpeed;
-    // console.log(currentScrollLeft)
     e.target.scrollLeft = scrollLeft - walk;
-    currentScrollLeft = e.target.scrollLeft;
   }
 
   return (
@@ -69,6 +59,7 @@ export default function Scene({ backgroundURL, backgroundRef, startPosition, chi
       onMouseUp={mouseUpHandler}
       onMouseLeave={mouseLeaveHandler}
       onMouseMove={mouseMoveHandler}
+      onScroll={scrollHandler}
     >
       <div className='background' ref={backgroundRef} style={{ backgroundImage: `url(${backgroundURL})` }}></div>
       {children}

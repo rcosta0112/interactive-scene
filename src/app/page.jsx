@@ -6,11 +6,12 @@ import Help from "@/components/help/Help";
 import Hotspots from "@/components/hotspots/Hotspots";
 import Hotspot from "@/components/hotspots/Hotspot";
 import Popup from "@/components/popups/Popup";
+import MiniMap from "@/components/miniMap/MiniMap";
 
 import { useState, useEffect, useRef } from "react";
+import { useDebouncedCallback } from 'use-debounce';
 
-
-export default function Home({searchParams}) {
+export default function Home({ searchParams }) {
 
   // Fades in after dom is mounted
   useEffect(() => {
@@ -20,12 +21,22 @@ export default function Home({searchParams}) {
 
 
   // Scene scroll and mini map
-  const sceneRef = useRef();
-  const [sceneScroll, setSceneScroll] = useState();
-
   const backgroundRef = useRef();
   const backgroundURL = "/images/background/main-floor.jpg";
 
+  const sceneRef = useRef();
+  const [sceneScroll, setSceneScroll] = useState();
+  // var sceneScroll = 0;
+
+  // If you don't debounce, setSceneScroll will stop the page from scrolling
+  const scrollHandler = useDebouncedCallback((e)=>{
+    setSceneScroll(e.target.scrollLeft);
+  }, 100);
+
+  // const scrollHandler = function(e){
+  //   sceneScroll = e.target.scrollLeft;
+  //   console.log(sceneScroll)
+  // }
 
   // Help
   const [helpIn, setHelpIn] = useState();
@@ -36,10 +47,9 @@ export default function Home({searchParams}) {
 
   // Only shows the help screen if not coming from another page
   useEffect(() => {
-    console.log(searchParams.help)
-    if(searchParams.help === undefined){
+    if (searchParams.help === undefined) {
       setHelpIn(true);
-    } 
+    }
   }, []);
 
   // Popups
@@ -55,9 +65,13 @@ export default function Home({searchParams}) {
 
   return (
     <main>
-      <Scene startPosition="0" backgroundURL={backgroundURL} sceneRef={sceneRef}
+      <Scene
+        startPosition="0"
+        backgroundURL={backgroundURL}
+        sceneRef={sceneRef}
         backgroundRef={backgroundRef}
-        sceneScroll={sceneScroll} setSceneScroll={setSceneScroll}>
+        scrollHandler={scrollHandler}
+        >
         <Hotspots>
           <Hotspot label="Overview" position={{ x: 31, y: 43 }} clickHandler={openPopup} targetPopup="1" type="icon" />
           <Hotspot label="Dolorem Sit Amet" position={{ x: 86, y: 46 }} clickHandler={openPopup} targetPopup="2" type="icon" number="1" />
@@ -67,6 +81,12 @@ export default function Home({searchParams}) {
       </Scene>
 
       <TopNav toggleHelp={toggleHelp} />
+      <MiniMap
+        thumbnailURL={backgroundURL}
+        background={backgroundRef}
+        scene={sceneRef}
+        sceneScroll={sceneScroll}
+      />
 
       <Popup id="1" currentPopup={currentPopup} closePopups={closePopups} />
       <Popup id="2" currentPopup={currentPopup} closePopups={closePopups} />
