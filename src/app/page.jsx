@@ -6,10 +6,8 @@ import Help from "@/components/help/Help";
 import Hotspots from "@/components/hotspots/Hotspots";
 import Hotspot from "@/components/hotspots/Hotspot";
 import Popup from "@/components/popups/Popup";
-import MiniMap from "@/components/miniMap/MiniMap";
 
 import { useState, useEffect, useRef } from "react";
-import { useDebouncedCallback } from 'use-debounce';
 
 export default function Home({ searchParams }) {
 
@@ -20,23 +18,8 @@ export default function Home({ searchParams }) {
   }, []);
 
 
-  // Scene scroll and mini map
-  const backgroundRef = useRef();
+  // Background reference for scene, minimap and intro popup
   const backgroundURL = "/images/background/main-floor.jpg";
-
-  const sceneRef = useRef();
-  const [sceneScroll, setSceneScroll] = useState();
-  // var sceneScroll = 0;
-
-  // If you don't debounce, setSceneScroll will stop the page from scrolling
-  const scrollHandler = useDebouncedCallback((e)=>{
-    setSceneScroll(e.target.scrollLeft);
-  }, 100);
-
-  // const scrollHandler = function(e){
-  //   sceneScroll = e.target.scrollLeft;
-  //   console.log(sceneScroll)
-  // }
 
   // Help
   const [helpIn, setHelpIn] = useState();
@@ -68,9 +51,6 @@ export default function Home({ searchParams }) {
       <Scene
         startPosition="0"
         backgroundURL={backgroundURL}
-        sceneRef={sceneRef}
-        backgroundRef={backgroundRef}
-        scrollHandler={scrollHandler}
         >
         <Hotspots>
           <Hotspot label="Overview" position={{ x: 31, y: 43 }} clickHandler={openPopup} targetPopup="1" type="icon" />
@@ -81,12 +61,6 @@ export default function Home({ searchParams }) {
       </Scene>
 
       <TopNav toggleHelp={toggleHelp} />
-      {/* <MiniMap
-        thumbnailURL={backgroundURL}
-        background={backgroundRef}
-        scene={sceneRef}
-        sceneScroll={sceneScroll}
-      /> */}
 
       <Popup id="1" currentPopup={currentPopup} closePopups={closePopups} />
       <Popup id="2" currentPopup={currentPopup} closePopups={closePopups} />
