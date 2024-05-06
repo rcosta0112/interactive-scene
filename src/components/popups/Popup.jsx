@@ -39,7 +39,6 @@ export default function Popup({ id, currentPopup, closePopups }) {
           slidesPerView={1}
           navigation
           pagination={{ clickable: true }}
-          navigation-sides-offset={40}
         >
           {
             slides.map((slide, index) => {
