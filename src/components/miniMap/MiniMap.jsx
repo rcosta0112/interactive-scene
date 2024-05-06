@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState, useImperativeHandle } from 'react';
+import Image from 'next/image';
 import "./miniMap.css";
 
 export default function MiniMap({ sceneRef, backgroundRef, backgroundURL, miniMapRef }) {
@@ -16,7 +17,7 @@ export default function MiniMap({ sceneRef, backgroundRef, backgroundURL, miniMa
   let padding = 0;
   let sceneWidth;
   let startX;
-  
+
   const miniMap = useRef();
   const control = useRef();
   const [controlWidth, setControlWidth] = useState();
@@ -125,7 +126,7 @@ export default function MiniMap({ sceneRef, backgroundRef, backgroundURL, miniMa
 
   return (
     <div ref={miniMap} className="mini-map small">
-      <img src={backgroundURL} className="mini-map-thumb" />
+      <Image width="640" height="90" alt="Office scene" src={backgroundURL} className="mini-map-thumb" />
       <div ref={control} className="mini-map-control" style={{ width: controlWidth + "px" }}></div>
     </div>
   )

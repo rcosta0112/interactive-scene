@@ -40,16 +40,6 @@ main.in {
   opacity: 1;
 }
 
-
-/* REFACTOR */
-/* So user can't drag the video masks */
-.scene>img {
-  pointer-events: none;
-}
-
-
-
-
 main {
   display: flex;
   position: relative;
@@ -57,7 +47,6 @@ main {
   justify-content: center;
   align-items: center;
 }
-
 
 
 
@@ -192,32 +181,6 @@ p.small {
   color: var(--primary-color);
   background-color: #fff;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-/* Mini Map */
-
-
-.mini-map-frame.scrolling {
-  cursor: grabbing;
-}
-
-.mini-map-thumb {
-  pointer-events: none;
-}
-
-
-
-
 
 
 /* Drag prompt */

@@ -39,6 +39,7 @@ export default function Popup({ id, currentPopup, closePopups }) {
           slidesPerView={1}
           navigation
           pagination={{ clickable: true }}
+          navigation-sides-offset={40}
         >
           {
             slides.map((slide, index) => {
@@ -46,7 +47,7 @@ export default function Popup({ id, currentPopup, closePopups }) {
                 return (
                   <SwiperSlide key={index}>
                     <div className="video-wrapper">
-                      <Image width="1920" height="1080" alt="slide" className="vidyard-player-embed" data-uuid={slide.UUID} data-v="4" data-type="inline" />
+                      <Image width="1920" height="1080" alt="slide" className="video-player-embed" data-uuid={slide.UUID} data-v="4" data-type="inline" />
                     </div>
                   </SwiperSlide>
                 )

@@ -47,8 +47,8 @@
 .popup-close-button-text {
   color: var(--primary-color);
   cursor: pointer;
-  font-size: 36px;
-  font-weight: 500;
+  font-size: 46px;
+  font-weight: 100;
   line-height: 1;
   transform: rotate(45deg);
   user-select: none;
@@ -74,6 +74,12 @@
   position: fixed !important;
 }
 
+/* Navigation arrows position */
+.swiper-button-next, .swiper-rtl .swiper-button-prev,
+.swiper-button-prev, .swiper-rtl .swiper-button-next {
+  --swiper-navigation-sides-offset: 20px;
+}
+
 @media screen and (max-width: 991px) {
 
   .swiper-button-next,
@@ -88,24 +94,3 @@
 }
 
 
-
-
-/* Vidyard Player */
-
-.video-wrapper {
-  display: flex;
-  width: 80%;
-  margin: 0 auto;
-  height: 90vh;
-}
-
-
-.vidyard_iframe {
-  width: 100%;
-  height: 87vh;
-  max-height: 90vh;
-}
-
-.vidyard-player-embed {
-  height: 90vh;
-}

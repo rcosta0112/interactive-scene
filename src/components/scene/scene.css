@@ -34,3 +34,8 @@
   cursor: grabbing;
   cursor: -webkit-grabbing;
 }
+
+/* So user can't drag the video masks */
+.scene>img {
+  pointer-events: none;
+}
