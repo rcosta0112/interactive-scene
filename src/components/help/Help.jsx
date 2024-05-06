@@ -43,7 +43,7 @@ export default function Help({ helpIn = false, thumbnailURL, toggleHelp }) {
               <p className="small">Click a hotspot to display additional content</p>
             </div>
           </div>
-          <button onClick={toggleHelp}>Begin exploring</button>
+          <button class="button" onClick={toggleHelp}>Begin exploring</button>
         </div>
       </div>
     </div>

@@ -172,7 +172,7 @@ p.small {
 }
 
 
-button {
+.button {
   max-width: 300px;
   border: 2px solid var(--primary-color);
   background-color: var(--primary-color);
@@ -188,7 +188,7 @@ button {
   user-select: none;
 }
 
-button:hover {
+.button:hover {
   color: var(--primary-color);
   background-color: #fff;
 }
