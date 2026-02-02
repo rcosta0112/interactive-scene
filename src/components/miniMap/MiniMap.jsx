@@ -79,7 +79,7 @@ export default function MiniMap({ sceneRef, backgroundRef, backgroundURL, miniMa
 
       // Clamps control.current position
       if (targetPosition < minX + padding) { targetPosition = minX; }
-      else if (targetPosition > maxX - padding) { targetPosition = maxX - padding; }
+      else if (targetPosition > maxX - padding) { targetPosition = maxX - padding + 2; }
 
       // Offsets for the frame size
       targetPosition = targetPosition - controlOffset;
@@ -107,7 +107,6 @@ export default function MiniMap({ sceneRef, backgroundRef, backgroundURL, miniMa
     setControlWidth(window.innerWidth / window.innerHeight * control.current?.offsetHeight);
   }
 
-
   useImperativeHandle(miniMapRef, () => ({
     // Moves minimap control control.current when scene is scrolled
     sceneScrollHandler() {
@@ -122,12 +121,11 @@ export default function MiniMap({ sceneRef, backgroundRef, backgroundURL, miniMa
     }
   }));
 
-
-
   return (
     <div ref={miniMap} className="mini-map small">
       <Image width="640" height="90" alt="Office scene" src={backgroundURL} className="mini-map-thumb" />
       <div ref={control} className="mini-map-control" style={{ width: controlWidth + "px" }}></div>
     </div>
   )
+
 }

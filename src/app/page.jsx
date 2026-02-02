@@ -7,7 +7,7 @@ import Hotspots from "@/components/hotspots/Hotspots";
 import Hotspot from "@/components/hotspots/Hotspot";
 import Popup from "@/components/popups/Popup";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 
 export default function Home({ searchParams }) {
 
@@ -33,7 +33,7 @@ export default function Home({ searchParams }) {
     if (searchParams.help === undefined) {
       setHelpIn(true);
     }
-  }, []);
+  }, [searchParams.help]);
 
   // Popups
   const [currentPopup, setCurrentPopup] = useState();
