@@ -7,7 +7,7 @@ import "./miniMap.css";
 export default function MiniMap({ sceneRef, backgroundRef, backgroundURL, miniMapRef }) {
 
   // MINI MAP
-
+ 
   let targetPosition;
   let isDownMinimap = false;
   let currentPosition;
